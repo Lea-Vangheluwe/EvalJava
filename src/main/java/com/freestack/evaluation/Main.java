@@ -11,6 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //commentaire test
         UberUser uberUser = new UberUser("joe", "bah");
         UberApi.enrollUser(uberUser);
 
@@ -27,6 +28,7 @@ public class Main {
         if (booking2 != null) throw new AssertionError("the only one driver is already booked, " +
             "we should not found any free");
 
+        //test ci
         UberApi.finishBooking(booking1);
         int evaluationOfTheUser = 5;
         UberApi.evaluateDriver(booking1, evaluationOfTheUser);
