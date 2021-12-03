@@ -44,6 +44,6 @@ workflows:
     # Inside the workflow, you define the jobs you want to run. test
     jobs:
       - build-and-test:
-          branches:
-            only: /feature-.*/
-
+          filters:
+            branches:
+              only: /feature-.*/
