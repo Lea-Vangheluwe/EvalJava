@@ -46,5 +46,5 @@ workflows:
       - build-and-test:
         filters:
           branches:
-            only: /feature-*/
+            only: /blabla-*/
 
