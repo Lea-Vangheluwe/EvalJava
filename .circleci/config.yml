@@ -2,6 +2,15 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
+
+commands:
+  say-hello:
+    description: echo hello
+    steps:
+      - run:
+          name: says hello
+          command: echo "Hello"
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
