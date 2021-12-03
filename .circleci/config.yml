@@ -45,5 +45,5 @@ workflows:
     jobs:
       - build-and-test
         - filters:
-            - branches:
+          - branches:
               - only: /feature-*/
