@@ -15,8 +15,10 @@ import java.util.List;
 
 public class UberApi {
 
-    //    static EntityManager em = emf.createEntityManager();
-
+    /**
+     * Register/enroll a user. Take a User as a paramater
+     * @param uberUser
+     */
     public static void enrollUser(UberUser uberUser){
         EntityManager em = EntityManagerFactorySingleton
                 .getInstance().createEntityManager();
@@ -26,6 +28,10 @@ public class UberApi {
         em.close();
     }
 
+    /**
+     * Register/enroll a Driver. Take a UserDriver as a parameter
+     * @param uberDriver
+     */
     public static void enrollDriver(UberDriver uberDriver){
         EntityManager em = EntityManagerFactorySingleton
                 .getInstance().createEntityManager();
@@ -35,6 +41,12 @@ public class UberApi {
         em.close();
     }
 
+    /**
+     * Allow a user to book a course. Check if there's an available driver. If so, create a new booking wit a driver, a user and a starting date.
+     * Set the driver to "unavailable"
+     * @param uberUser
+     * @return the created booking
+     */
     public static Booking bookOneDriver(UberUser uberUser) {
         EntityManager em = EntityManagerFactorySingleton
                 .getInstance().createEntityManager();
@@ -57,9 +69,12 @@ public class UberApi {
         else{
             return null;
         }
-
     }
 
+    /**
+     * CLose a booking. Set an ending date. Set the driver to "available"
+     * @param booking
+     */
     public static void finishBooking(Booking booking){
         EntityManager em = EntityManagerFactorySingleton
                 .getInstance().createEntityManager();
@@ -73,6 +88,11 @@ public class UberApi {
         em.close();
     }
 
+    /**
+     * Allow a user to evaluate a driver.
+     * @param booking
+     * @param evaluation
+     */
     public static void evaluateDriver(Booking booking, Integer evaluation){
         EntityManager em = EntityManagerFactorySingleton
                 .getInstance().createEntityManager();
@@ -85,6 +105,11 @@ public class UberApi {
         em.close();
     }
 
+    /**
+     * Get all Bookings (current and past) of a giver driver
+     * @param uberDriver
+     * @return a list of bookings
+     */
     public static List<Booking> listDriverBookings (UberDriver uberDriver){
         List<Booking> bookings = new ArrayList<>();
         EntityManager em = EntityManagerFactorySingleton
@@ -98,6 +123,10 @@ public class UberApi {
         return bookings;
     }
 
+    /**
+     * Get all the ongoing bookings
+     * @return a list of bookings
+     */
     public static List<Booking> listUnfinishedBookings (){
         List<Booking> bookings = new ArrayList<>();
         EntityManager em = EntityManagerFactorySingleton
@@ -110,6 +139,11 @@ public class UberApi {
         return bookings;
     }
 
+    /**
+     * Calculate the average score of a driver
+     * @param uberDriver
+     * @return the average score of a driver
+     */
     public static Float meanScore(UberDriver uberDriver){
         float meanScore = 0F;
         Double meanScoreLong = 0D;
